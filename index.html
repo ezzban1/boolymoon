@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Провайдери Інтернету</title>
+<style>
+body {
+font-family: 'Segoe UI', sans-serif;
+margin: 0;
+background: linear-gradient(to right, #4facfe, #00f2fe);
+color: #222;
+}
+header {
+text-align: center;
+padding: 40px;
+background: rgba(255, 255, 255, 0.9);
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+position: relative;
+}
+header h1 {
+font-size: 2.5em;
+margin: 0;
+color: #333;
+animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+from { text-shadow: 0 0 5px #fff, 0 0 10px #4facfe; }
+to { text-shadow: 0 0 20px #00f2fe, 0 0 30px #fff; }
+}
+section {
+padding: 40px;
+max-width: 950px;
+margin: auto;
+background: rgba(255,255,255,0.9);
+border-radius: 10px;
+margin-top: 30px;
+box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+line-height: 1.7;
+}
+.btn {
+display: inline-block;
+padding: 12px 25px;
+margin: 10px;
+font-size: 1em;
+color: white;
+background: #4facfe;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+transition: 0.3s;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.btn:hover {
+background: #00c3ff;
+transform: scale(1.05);
+}
+.question {
+margin-bottom: 20px;
+font-weight: bold;
+}
+.result {
+font-size: 1.2em;
+font-weight: bold;
+margin-top: 20px;
+padding: 10px;
+background: #e0f7fa;
+border-radius: 5px;
+display: none;
+}
+.search-box {
+margin-top: 20px;
+}
+mark {
+background: yellow;
+font-weight: bold;
+}
+#scrollTopBtn {
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 1000;
+}
+#register {
+position: fixed;
+top: 20px;
+right: 20px;
+z-index: 1000;
+}
+
+/* 📌 Футер */
+footer {
+background: rgba(255, 255, 255, 0.9);
+text-align: center;
+padding: 20px;
+margin-top: 50px;
+box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+font-size: 14px;
+color: #333;
+}
+footer span {
+font-weight: bold;
+color: #007bff;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>🌐 Все про Інтернет-провайдерів</h1>
+<button class="btn" onclick="scrollToSection('info')">ℹ️ Інформація</button>
+<button class="btn" onclick="scrollToSection('quiz')">📝 Тест</button>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="🔍 Пошук по сторінці..." onkeyup="searchText()">
+</div>
+</header>
+
+<div id="register">
+<button class="btn" onclick="showRegisterForm()">Реєстрація</button>
+</div>
+
+<div id="top"></div>
+
+<section id="info">
+<h2>Хто такі провайдери?</h2>
+<p>
+<b>Інтернет-провайдер</b> — це компанія, яка надає доступ до глобальної мережі Інтернет.
+Провайдери забезпечують користувачам стабільність з’єднання, швидкість передачі даних та
+додаткові сервіси (телебачення, телефонію, хмарні послуги).
+</p>
+
+<h3>📖 Історія</h3>
+<p>
+Перші провайдери з’явилися у 90-х роках, коли Інтернет почав поширюватися серед населення.
+Спочатку доступ здійснювався через телефонні лінії (dial-up), а швидкість була дуже низькою — лише кілька кілобіт на секунду. Сьогодні ж ми користуємось оптоволоконними мережами, 4G та 5G.
+</p>
+
+<h3>🔌 Види провайдерів</h3>
+<ul>
+<li><b>Мобільні оператори</b> — Київстар, Vodafone, Lifecell.</li>
+<li><b>Фіксовані (домашній Інтернет)</b> — Lanet, Triolan, Volia.</li>
+<li><b>Супутникові</b> — Starlink та інші.</li>
+</ul>
+
+<h3>💡 Чому важливі провайдери?</h3>
+<p>
+Від якості роботи провайдера залежить можливість навчання, роботи, спілкування та навіть функціонування бізнесу. Швидкий Інтернет — основа сучасної економіки.
+</p>
+
+<h3>📊 Популярні тарифи</h3>
+<p>
+Зазвичай провайдери пропонують пакети зі швидкістю від 50 Мбіт/с до 1 Гбіт/с.
+Деякі також надають IPTV, безкоштовний Wi-Fi-роутер або знижки для студентів та сімей.
+</p>
+
+<h3>🚀 Майбутнє</h3>
+<p>
+У майбутньому очікується повний перехід на <b>оптоволокно</b>, розширення 5G-мереж та популяризація супутникового Інтернету, що дозволить мати швидкісний зв’язок навіть у найвіддаленіших селах.
+</p>
+</section>
+
+<section id="quiz">
+<h2>📝 Тест</h2>
+<form id="quizForm">
+<div class="question">
+1. Хто такі інтернет-провайдери?<br>
+<input type="radio" name="q1" value="a"> Компанії, що надають доступ до Інтернету<br>
+<input type="radio" name="q1" value="b"> Виробники комп'ютерів<br>
+<input type="radio" name="q1" value="c"> Соціальні мережі
+</div>
+<div class="question">
+2. Яка була перша технологія доступу до Інтернету?<br>
+<input type="radio" name="q2" value="a"> Оптоволокно<br>
+<input type="radio" name="q2" value="b"> Dial-up<br>
+<input type="radio" name="q2" value="c"> Wi-Fi
+</div>
+<div class="question">
+3. Що таке оптоволоконний Інтернет?<br>
+<input type="radio" name="q3" value="a"> Інтернет через телефон<br>
+<input type="radio" name="q3" value="b"> Інтернет по кабелю зі скла<br>
+<input type="radio" name="q3" value="c"> Мобільний Інтернет
+</div>
+<div class="question">
+4. Який провайдер працює через супутники?<br>
+<input type="radio" name="q4" value="a"> Starlink<br>
+<input type="radio" name="q4" value="b"> Vodafone<br>
+<input type="radio" name="q4" value="c"> Lanet
+</div>
+<div class="question">
+5. Що таке 5G?<br>
+<input type="radio" name="q5" value="a"> П’яте покоління мобільного Інтернету<br>
+<input type="radio" name="q5" value="b"> Провідна технологія<br>
+<input type="radio" name="q5" value="c"> Телебачення
+</div>
+<div class="question">
+6. Хто з українських операторів надає мобільний Інтернет?<br>
+<input type="radio" name="q6" value="a"> Київстар, Vodafone, Lifecell<br>
+<input type="radio" name="q6" value="b"> Lanet, Triolan<br>
+<input type="radio" name="q6" value="c"> Starlink
+</div>
+<div class="question">
+7. Що таке Wi-Fi роутер?<br>
+<input type="radio" name="q7" value="a"> Пристрій для підключення комп’ютера<br>
+<input type="radio" name="q7" value="b"> Пристрій для роздачі Інтернету<br>
+<input type="radio" name="q7" value="c"> Телефон
+</div>
+<div class="question">
+8. Що таке IPTV?<br>
+<input type="radio" name="q8" value="a"> Телебачення через Інтернет<br>
+<input type="radio" name="q8" value="b"> Телефонія<br>
+<input type="radio" name="q8" value="c"> Відеозв'язок
+</div>
+<div class="question">
+9. Яка швидкість зараз популярна серед тарифів?<br>
+<input type="radio" name="q9" value="a"> 1-10 Мбіт/с<br>
+<input type="radio" name="q9" value="b"> 50-1000 Мбіт/с<br>
+<input type="radio" name="q9" value="c"> 5-20 Кбіт/с
+</div>
+<div class="question">
+10. Яке майбутнє у провайдерів?<br>
+<input type="radio" name="q10" value="a"> Повний перехід на оптоволокно та 5G<br>
+<input type="radio" name="q10" value="b"> Лише телефонний Інтернет<br>
+<input type="radio" name="q10" value="c"> Відмова від Інтернету
+</div>
+
+<button type="button" class="btn" onclick="checkQuiz()">Перевірити</button>
+</form>
+<div class="result" id="result"></div>
+</section>
+
+<!-- Кнопка вверх -->
+<button class="btn" id="scrollTopBtn" onclick="scrollToSection('top')">⬆️ Вгору</button>
+
+<!-- 📊 Футер з лічильником -->
+<footer>
+<p>© 2025 Провайдери Інтернету. Усі права захищені.</p>
+<p>🔢 Ви відвідали цю сторінку <span id="visitCount">0</span> раз(ів).</p>
+</footer>
+
+<script>
+function scrollToSection(id) {
+document.getElementById(id).scrollIntoView({behavior: "smooth"});
+}
+
+function searchText() {
+let input = document.getElementById("searchInput").value.trim().toLowerCase();
+let bodyText = document.body.innerHTML.replace(/<mark>|<\/mark>/g, "");
+if (input) {
+let regex = new RegExp(`(${input})`, "gi");
+document.body.innerHTML = bodyText.replace(regex, "<mark>$1</mark>");
+} else {
+document.body.innerHTML = bodyText;
+}
+}
+
+function checkQuiz() {
+let correctAnswers = {
+q1: "a", q2: "b", q3: "b", q4: "a", q5: "a",
+q6: "a", q7: "b", q8: "a", q9: "b", q10: "a"
+};
+let form = document.getElementById("quizForm");
+let score = 0;
+for (let q in correctAnswers) {
+let chosen = form.querySelector(`input[name="${q}"]:checked`);
+if (chosen && chosen.value === correctAnswers[q]) {
+score++;
+}
+}
+let result = document.getElementById("result");
+result.style.display = "block";
+result.innerHTML = "✅ Ви набрали " + score + " з 10!";
+}
+
+function showRegisterForm() {
+let form = `
+<div style="position: fixed; top: 60px; right: 20px; background: rgba(255,255,255,0.95); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1001;">
+<h3>Реєстрація</h3>
+<input type="text" placeholder="Ім'я" style="margin:5px 0; padding:5px; width: 100%;"><br>
+<input type="email" placeholder="Email" style="margin:5px 0; padding:5px; width: 100%;"><br>
+<input type="password" placeholder="Пароль" style="margin:5px 0; padding:5px; width: 100%;"><br>
+<button class="btn" onclick="alert('Дякуємо за реєстрацію!')">Зареєструватися</button>
+</div>`;
+document.body.insertAdjacentHTML('beforeend', form);
+}
+
+// 📊 Лічильник відвідувань
+let visits = localStorage.getItem("visitCount") || 0;
+visits++;
+localStorage.setItem("visitCount", visits);
+document.getElementById("visitCount").textContent = visits;
+</script>
+</body>
+</html>
